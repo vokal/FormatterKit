@@ -21,6 +21,7 @@
 // THE SOFTWARE.
 
 #import "TTTTimeIntervalFormatter.h"
+#import "TTTBundle.h"
 
 #if (defined(__IPHONE_OS_VERSION_MAX_ALLOWED) && __IPHONE_OS_VERSION_MAX_ALLOWED >= 70000) || (defined(__MAC_OS_X_VERSION_MAX_ALLOWED) && __MAC_OS_X_VERSION_MAX_ALLOWED >= 1090)
     #define TTTCalendarUnitYear NSCalendarUnitYear
@@ -43,8 +44,6 @@
     #define TTTCalendarUnitWeekday NSWeekdayCalendarUnit
     #define TTTDateComponentUndefined NSUndefinedDateComponent
 #endif
-
-#define BundleForTables [NSBundle bundleForClass:[self class]]
 
 static inline NSCalendarUnit NSCalendarUnitFromString(NSString *string) {
     if ([string isEqualToString:@"year"]) {
@@ -122,7 +121,7 @@ static inline NSComparisonResult NSCalendarUnitCompareSignificance(NSCalendarUni
     self.locale = [NSLocale currentLocale];
     self.calendar = [NSCalendar currentCalendar];
 
-    self.pastDeicticExpression = NSLocalizedStringFromTableInBundle(@"ago", @"FormatterKit", BundleForTables, @"Past Deictic Expression");
+    self.pastDeicticExpression = NSLocalizedStringFromTableInBundle(@"ago", @"FormatterKit",BundleForTables, @"Past Deictic Expression");
     self.presentDeicticExpression = NSLocalizedStringFromTableInBundle(@"just now", @"FormatterKit", BundleForTables, @"Present Deictic Expression");
     self.futureDeicticExpression = NSLocalizedStringFromTableInBundle(@"from now", @"FormatterKit", BundleForTables, @"Future Deictic Expression");
 
@@ -210,7 +209,7 @@ static inline NSComparisonResult NSCalendarUnitCompareSignificance(NSCalendarUni
     if (self.usesAbbreviatedCalendarUnits) {
         switch (unit) {
             case TTTCalendarUnitYear:
-                return singular ? NSLocalizedStringFromTableInBundle(@"yr", @"FormatterKit", BundleForTables, @"Year Unit (Singular, Abbreviated)") : NSLocalizedStringFromTableInBundle(@"yrs", @"FormatterKit", BundleForTables, @"Year Unit (Plural, Abbreviated)");
+                return singular ? NSLocalizedStringFromTableInBundle(@"yr", @"FormatterKit",BundleForTables, @"Year Unit (Singular, Abbreviated)") : NSLocalizedStringFromTableInBundle(@"yrs", @"FormatterKit", BundleForTables, @"Year Unit (Plural, Abbreviated)");
             case TTTCalendarUnitMonth:
                 return singular ? NSLocalizedStringFromTableInBundle(@"mo", @"FormatterKit", BundleForTables, @"Month Unit (Singular, Abbreviated)") : NSLocalizedStringFromTableInBundle(@"mos", @"FormatterKit", BundleForTables, @"Month Unit (Plural, Abbreviated)");
             case TTTCalendarUnitWeek:

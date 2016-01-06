@@ -21,6 +21,7 @@
 // THE SOFTWARE.
 
 #import "TTTLocationFormatter.h"
+#import "TTTBundle.h"
 
 static double const kTTTMetersToKilometersCoefficient = 0.001;
 static double const kTTTMetersToFeetCoefficient = 3.2808399;
@@ -271,10 +272,10 @@ static NSString * TTTLocalizedStringForAbbreviatedCardinalDirection(TTTLocationC
 
             if (kilometerDistance >= 1) {
                 distanceString = [_numberFormatter stringFromNumber:@(kilometerDistance)];
-                unitString = NSLocalizedStringFromTable(@"km", @"FormatterKit", @"Kilometer Unit");
+                unitString = NSLocalizedStringFromTableInBundle(@"km", @"FormatterKit", BundleForTables, @"Kilometer Unit");
             } else {
                 distanceString = [_numberFormatter stringFromNumber:@(meterDistance)];
-                unitString = NSLocalizedStringFromTable(@"m", @"FormatterKit", @"Meter Unit");
+                unitString = NSLocalizedStringFromTableInBundle(@"m", @"FormatterKit", BundleForTables, @"Meter Unit");
             }
             break;
         }
@@ -286,13 +287,13 @@ static NSString * TTTLocalizedStringForAbbreviatedCardinalDirection(TTTLocationC
 
             if (feetDistance < 300) {
                 distanceString = [_numberFormatter stringFromNumber:@(feetDistance)];
-                unitString = NSLocalizedStringFromTable(@"ft", @"FormatterKit", @"Feet Unit");
+                unitString = NSLocalizedStringFromTableInBundle(@"ft", @"FormatterKit", BundleForTables, @"Feet Unit");
             } else if (yardDistance < 500) {
                 distanceString = [_numberFormatter stringFromNumber:@(yardDistance)];
-                unitString = NSLocalizedStringFromTable(@"yds", @"FormatterKit", @"Yard Unit");
+                unitString = NSLocalizedStringFromTableInBundle(@"yds", @"FormatterKit", BundleForTables, @"Yard Unit");
             } else {
                 distanceString = [_numberFormatter stringFromNumber:@(milesDistance)];
-                unitString = (milesDistance > 1.0 && milesDistance < 1.1) ? NSLocalizedStringFromTable(@"mile", @"FormatterKit", @"Mile Unit (Singular)") : NSLocalizedStringFromTable(@"miles", @"FormatterKit", @"Mile Unit (Plural)");
+                unitString = (milesDistance > 1.0 && milesDistance < 1.1) ? NSLocalizedStringFromTableInBundle(@"mile", @"FormatterKit", BundleForTables, @"Mile Unit (Singular)") : NSLocalizedStringFromTableInBundle(@"miles", @"FormatterKit", BundleForTables, @"Mile Unit (Plural)");
             }
             break;
         }
@@ -325,10 +326,10 @@ static NSString * TTTLocalizedStringForAbbreviatedCardinalDirection(TTTLocationC
 
             if (kilometersPerHourSpeed > 1) {
                 speedString = [self.numberFormatter stringFromNumber:@(kilometersPerHourSpeed)];
-                unitString = NSLocalizedStringFromTable(@"km/h", @"FormatterKit", @"Kilometers Per Hour Unit");
+                unitString = NSLocalizedStringFromTableInBundle(@"km/h", @"FormatterKit", BundleForTables, @"Kilometers Per Hour Unit");
             } else {
                 speedString = [self.numberFormatter stringFromNumber:@(metersPerSecondSpeed)];
-                unitString = NSLocalizedStringFromTable(@"m/s", @"FormatterKit", @"Meters Per Second Unit");
+                unitString = NSLocalizedStringFromTableInBundle(@"m/s", @"FormatterKit", BundleForTables, @"Meters Per Second Unit");
             }
             break;
         }
@@ -339,10 +340,10 @@ static NSString * TTTLocalizedStringForAbbreviatedCardinalDirection(TTTLocationC
 
             if (milesPerHourSpeed > 1) {
                 speedString = [self.numberFormatter stringFromNumber:@(milesPerHourSpeed)];
-                unitString = NSLocalizedStringFromTable(@"mph", @"FormatterKit", @"Miles Per Hour Unit");
+                unitString = NSLocalizedStringFromTableInBundle(@"mph", @"FormatterKit", BundleForTables, @"Miles Per Hour Unit");
             } else {
                 speedString = [self.numberFormatter stringFromNumber:@(feetPerSecondSpeed)];
-                unitString = NSLocalizedStringFromTable(@"ft/s", @"FormatterKit", @"Feet Per Second Unit");
+                unitString = NSLocalizedStringFromTableInBundle(@"ft/s", @"FormatterKit", BundleForTables, @"Feet Per Second Unit");
             }
             break;
         }
@@ -390,7 +391,7 @@ static NSString * TTTLocalizedStringForAbbreviatedCardinalDirection(TTTLocationC
              forString:(__unused NSString *)string
       errorDescription:(out NSString *__autoreleasing *)error
 {
-    *error = NSLocalizedStringFromTable(@"Method Not Implemented", @"FormatterKit", nil);
+    *error = NSLocalizedStringFromTableInBundle(@"Method Not Implemented", @"FormatterKit", BundleForTables, nil);
 
     return NO;
 }
