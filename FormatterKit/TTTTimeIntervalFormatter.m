@@ -121,7 +121,7 @@ static inline NSComparisonResult NSCalendarUnitCompareSignificance(NSCalendarUni
     self.locale = [NSLocale currentLocale];
     self.calendar = [NSCalendar currentCalendar];
 
-    self.pastDeicticExpression = NSLocalizedStringFromTableInBundle(@"ago", @"FormatterKit",BundleForTables, @"Past Deictic Expression");
+    self.pastDeicticExpression = NSLocalizedStringFromTableInBundle(@"ago", @"FormatterKit", BundleForTables, @"Past Deictic Expression");
     self.presentDeicticExpression = NSLocalizedStringFromTableInBundle(@"just now", @"FormatterKit", BundleForTables, @"Present Deictic Expression");
     self.futureDeicticExpression = NSLocalizedStringFromTableInBundle(@"from now", @"FormatterKit", BundleForTables, @"Future Deictic Expression");
 
@@ -209,7 +209,7 @@ static inline NSComparisonResult NSCalendarUnitCompareSignificance(NSCalendarUni
     if (self.usesAbbreviatedCalendarUnits) {
         switch (unit) {
             case TTTCalendarUnitYear:
-                return singular ? NSLocalizedStringFromTableInBundle(@"yr", @"FormatterKit",BundleForTables, @"Year Unit (Singular, Abbreviated)") : NSLocalizedStringFromTableInBundle(@"yrs", @"FormatterKit", BundleForTables, @"Year Unit (Plural, Abbreviated)");
+                return singular ? NSLocalizedStringFromTableInBundle(@"yr", @"FormatterKit", BundleForTables, @"Year Unit (Singular, Abbreviated)") : NSLocalizedStringFromTableInBundle(@"yrs", @"FormatterKit", BundleForTables, @"Year Unit (Plural, Abbreviated)");
             case TTTCalendarUnitMonth:
                 return singular ? NSLocalizedStringFromTableInBundle(@"mo", @"FormatterKit", BundleForTables, @"Month Unit (Singular, Abbreviated)") : NSLocalizedStringFromTableInBundle(@"mos", @"FormatterKit", BundleForTables, @"Month Unit (Plural, Abbreviated)");
             case TTTCalendarUnitWeek:
