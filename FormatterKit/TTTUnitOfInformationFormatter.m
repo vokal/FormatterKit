@@ -21,6 +21,7 @@
 // THE SOFTWARE.
 
 #import "TTTUnitOfInformationFormatter.h"
+#import "TTTBundle.h"
 
 static inline NSUInteger TTTNumberOfBitsInUnit(TTTUnitOfInformation unit) {
     switch (unit) {
@@ -199,7 +200,7 @@ static inline NSString * TTTByteUnitStringForSIPrefix(TTTUnitPrefix prefix) {
     }
 
     if (doubleValue < [self scaleFactorForPrefix:TTTKilo]) {
-        unitString = self.displaysInTermsOfBytes ? NSLocalizedStringFromTable(@"bytes", @"FormatterKit", @"Byte Unit") : NSLocalizedStringFromTable(@"bits", @"FormatterKit", @"Bit Unit");
+        unitString = self.displaysInTermsOfBytes ? NSLocalizedStringFromTableInBundle(@"bytes", @"FormatterKit", BundleForTables, @"Byte Unit") : NSLocalizedStringFromTableInBundle(@"bits", @"FormatterKit", BundleForTables, @"Bit Unit");
     } else {
         TTTUnitPrefix prefix = [self prefixForInteger:(uint64_t)llround(doubleValue)];
         if (self.displaysInTermsOfBytes) {
@@ -241,7 +242,7 @@ static inline NSString * TTTByteUnitStringForSIPrefix(TTTUnitPrefix prefix) {
              forString:(__unused NSString *)string
       errorDescription:(out NSString *__autoreleasing *)error
 {
-    *error = NSLocalizedStringFromTable(@"Method Not Implemented", @"FormatterKit", nil);
+    *error = NSLocalizedStringFromTableInBundle(@"Method Not Implemented", @"FormatterKit", BundleForTables, nil);
 
     return NO;
 }
